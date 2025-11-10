@@ -8,29 +8,24 @@ function Expenses() {
   const [date, setDate] = useState('');
   const [editIndex, setEditIndex] = useState(-1);
 
-  // Load saved expenses from localStorage
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem('expenses')) || [];
     setExpenses(saved);
   }, []);
 
-  // Save current expenses to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem('expenses', JSON.stringify(expenses));
   }, [expenses]);
 
-  // Handle adding or updating an expense
   const handleAdd = (e) => {
     e.preventDefault();
     if (!source || !amount || !date) return;
     if (editIndex >= 0) {
-      // Update existing expense
       const updated = [...expenses];
       updated[editIndex] = { source, amount: parseFloat(amount), date };
       setExpenses(updated);
       setEditIndex(-1);
     } else {
-      // Add new expense
       setExpenses([...expenses, { source, amount: parseFloat(amount), date }]);
     }
     setSource('');
@@ -38,7 +33,6 @@ function Expenses() {
     setDate('');
   };
 
-  // Handle editing an existing expense
   const handleEdit = (index) => {
     const item = expenses[index];
     setSource(item.source);
@@ -46,8 +40,6 @@ function Expenses() {
     setDate(item.date);
     setEditIndex(index);
   };
-
-  // Handle removing an expense
   const handleRemove = (index) => {
     const updated = expenses.filter((_, i) => i !== index);
     setExpenses(updated);
@@ -59,7 +51,6 @@ function Expenses() {
     }
   };
 
-  // Handle removing all expenses
   const handleRemoveAll = () => {
     setExpenses([]);
     localStorage.setItem('expenses', JSON.stringify([]));
@@ -69,14 +60,13 @@ function Expenses() {
     setDate('');
   };
 
-  // Calculate total expenses amount
   const totalAmount = expenses.reduce((sum, item) => sum + Number(item.amount || 0), 0);
 
   return (
     <div>
       <div className="nav-bar">
         <ul>
-          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/home'>Home</Link></li>
           <li><Link to='/about'>About</Link></li>
           <li><Link to='/contact'>Contact</Link></li>
         </ul>
@@ -97,7 +87,7 @@ function Expenses() {
           placeholder='Enter Expenses'
           value={source}
           onChange={e => setSource(e.target.value)}
-          disabled={editIndex >= 0}  // source not editable in edit mode to avoid confusion
+          disabled={editIndex >= 0}  
         />
         <input
           type="number"
@@ -154,3 +144,4 @@ function Expenses() {
 }
 
 export default Expenses;
+
