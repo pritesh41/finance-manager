@@ -1,0 +1,162 @@
+/* Income.css */
+
+body {
+  background: #f7f8fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Navbar styles */
+.nav-bar {
+  background: #ffffff;
+  padding: 16px 40px;
+  border-radius: 14px;
+  margin: 32px auto 24px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 12px #00000029;
+}
+
+.nav-bar ul {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.nav-bar li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+.nav-bar li a:hover {
+  color: #fbbf24;
+}
+
+/* Page navigation styles */
+.pages ul {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  justify-content: center;
+  margin: 28px auto 16px auto;
+  padding: 0;
+}
+
+.pages li a {
+  color: #535151;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.pages li a:hover {
+  color: #b9c8ce;
+}
+
+/* Main section heading */
+h1 {
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+  font-size: 2rem;
+}
+
+/* Input section styling */
+.input {
+  background: #fff;
+  padding: 22px 34px;
+  border-radius: 12px;
+  max-width: 100%;
+  margin: 24px auto 20px auto;
+  box-shadow: 0 2px 6px #1212121a;
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.input input[type="text"] {
+  padding: 8px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+  width: 25%;
+}
+
+.input input[type="text"]:focus {
+  border: 1.5px solid #38bdf8;
+}
+
+.input input[type="submit"], .input button {
+  background: linear-gradient(90deg, #0ea5e9 40%, #14b8a6 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.input input[type="submit"]:hover {
+  background: linear-gradient(90deg, #14b8a6 10%, #0ea5e9 90%);
+  transform: scale(1.06);
+}
+
+/* Saved incomes list */
+h3 {
+  text-align: center;
+  color: #38bdf8;
+  letter-spacing: 2px;
+  font-size: 1.3rem;
+  margin-top: 24px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px auto;
+  max-width: 500px;
+  padding: 10px 18px;
+  background: #000000;
+  border-radius: 8px;
+  font-size: 1.04rem;
+  color: #2563eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px #a0aec01a;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+li:hover {
+  background: #3f3e3e;
+  box-shadow: 0 4px 14px #ffffff29;
+}
+
+li button {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 11px;
+  font-size: 0.96rem;
+  margin-left: 18px;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.13s;
+}
+
+li button:hover {
+  background: #b91c1c;
+  transform: scale(1.1);
+}
