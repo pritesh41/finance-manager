@@ -7,7 +7,7 @@ function Income() {
   const [source, setSource] = useState('');
   const [amount, setAmount] = useState('');
   const [date, setDate] = useState('');
-  const [editIndex, setEditIndex] = useState(-1); // -1 means no edit mode
+  const [editIndex, setEditIndex] = useState(-1);
 
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem('incomeSources')) || [];
@@ -29,7 +29,6 @@ function Income() {
       setIncomeSources(updatedList);
       setEditIndex(-1);
     } else {
-      // Add mode
       setIncomeSources([...incomeSources, { source, amount: parseFloat(amount), date }]);
     }
 
@@ -49,7 +48,6 @@ function Income() {
   const handleRemove = (index) => {
     const updated = incomeSources.filter((_, i) => i !== index);
     setIncomeSources(updated);
-    // If removing the edited item, clear edit mode
     if (index === editIndex) {
       setSource('');
       setAmount('');
@@ -73,7 +71,7 @@ function Income() {
     <div>
       <div className="nav-bar">
         <ul>
-          <li><Link to="/">Home</Link></li>
+          <li><Link to="/home">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
@@ -94,7 +92,7 @@ function Income() {
           placeholder="Enter Income Source"
           value={source}
           onChange={e => setSource(e.target.value)}
-          disabled={editIndex >= 0} // source should not be editable in edit mode
+          disabled={editIndex >= 0} 
         />
         <input
           type="number"
@@ -151,3 +149,4 @@ function Income() {
 }
 
 export default Income;
+
